@@ -3,11 +3,12 @@
 <head>
     <style>
         .calculator{
-            width:200px;
+            width:250px;
             margin:0 auto;
             text-align: center;
             border: solid 2px;
-            background-color:pink;
+            background-color:grey;
+            border-radius:20px;
         }
         #result{
             width: 90%;
@@ -15,6 +16,7 @@
             padding:5px;
             font-size:20px;
             border-radius: 30%;
+            color:black;
         }
         .buttons button{
             width: 48px;
@@ -22,16 +24,16 @@
             font-size: 18px;
             margin-bottom: 5px;
             border-radius: 50%;
-           background-color:aqua;
-           color: red;
+           background-color:black;
+           color:white;
         }
         
         
         button:active{
-            background-color:darkmagenta;
+            background-color:white;
         }
         h1{
-            color: blue;
+            color:white;
         }
 
     </style>
@@ -41,7 +43,8 @@
         <h1>CALCI</h1>
         <input type="text"id="result" readonly>
         <div class="buttons">
-        <button onclick="clearResult()">c</button>
+       <div> <button style="background-color:blue;"onclick="clearResult()">c</button>
+        <button style="background-color:red;"onclick="del()"><-</button></div>
         <button onclick="appendToResult('9')">9</button>
         <button onclick="appendToResult('8')">8</button>
         <button onclick="appendToResult('7')">7</button>
@@ -73,6 +76,10 @@
         let result =document.getElementById("result").value;
         let finalResult=eval(result);
         document.getElementById("result").value=finalResult;
+        }
+        function del(){
+        let eq=document.getElementById("result");
+        eq.value=eq.value.slice(0,-1);
         }
     </script>
     
